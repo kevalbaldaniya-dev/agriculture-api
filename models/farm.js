@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+// farm for farm details
 const farmSchema = new mongoose.Schema({
     farmer_id: {
         type: String,
