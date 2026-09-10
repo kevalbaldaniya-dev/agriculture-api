@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-//crop table for famer total crop show
+//crop table for famer total crop show 
 const cropSchema = new mongoose.Schema({
   farmer_id: {
     type: String,
