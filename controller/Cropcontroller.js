@@ -10,9 +10,9 @@ const addCrop = async (req, res) => {
             crop_name: crop_name,
             crop_type: crop_type,
             variety: variety,
-            sowingdate: new Date(),
-            expectedHarvestDate: new Date(),
-            actualHarvestDate: new Date(),
+            sowingdate: sowingdate ? new Date(sowingdate) : new Date(),
+            expectedHarvestDate: expectedHarvestDate ? new Date(expectedHarvestDate) : new Date(),
+            actualHarvestDate: actualHarvestDate ? new Date(actualHarvestDate) : null,
             area: area,
             status: status,
             expectedProduction: expectedProduction,
@@ -20,7 +20,7 @@ const addCrop = async (req, res) => {
             notes: notes,
             createdat: new Date(),
             farms: farms,
-            users : users
+            users: users
         });
         let data = await newCrop.save();
 
@@ -75,7 +75,7 @@ const getCropbyfarmerid = async (req, res) => {
 
 const UpdateCropbyfarmerid = async (req, res) => {
     try {
-        let { farmer_id, farm_id, crop_name, crop_type, variety, sowingdate, expectedHarvestDate, actualHarvestDate, area, status, expectedProduction, actualProduction, notes, createdat, farms , users} = req.body;
+        let { farmer_id, farm_id, crop_name, crop_type, variety, sowingdate, expectedHarvestDate, actualHarvestDate, area, status, expectedProduction, actualProduction, notes, createdat, farms, users } = req.body;
 
         let data = await crop.findByIdAndUpdate(req.params.id, {
             farm_id,
