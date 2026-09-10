@@ -1,7 +1,7 @@
 const crop = require("../models/crop");
 
 const addCrop = async (req, res) => {
-    let { farmer_id, farm_id, crop_name, crop_type, variety, sowingdate, expectedHarvestDate, actualHarvestDate, area, status, expectedProduction, actualProduction, notes, createdat, farms } = req.body;
+    let { farmer_id, farm_id, crop_name, crop_type, variety, sowingdate, expectedHarvestDate, actualHarvestDate, area, status, expectedProduction, actualProduction, notes, createdat, farms, users } = req.body;
 
     try {
         let newCrop = new crop({
@@ -19,7 +19,8 @@ const addCrop = async (req, res) => {
             actualProduction: actualProduction,
             notes: notes,
             createdat: new Date(),
-            farms: farms
+            farms: farms,
+            users : users
         });
         let data = await newCrop.save();
 
@@ -54,7 +55,7 @@ const getCrop = async (req, res) => {
     }
 }
 
-const getCropbyfarmerid = async (req, res) => { 
+const getCropbyfarmerid = async (req, res) => {
     // paste id in url direct otherwise it run above api bcoz this function route is ":id" and above has "/" if you not paste ID in direct url postman confuse which to run and then it will run above all data show api
     try {
         let { id } = req.params
@@ -74,9 +75,9 @@ const getCropbyfarmerid = async (req, res) => {
 
 const UpdateCropbyfarmerid = async (req, res) => {
     try {
-        let { farmer_id, farm_id, crop_name, crop_type, variety, sowingdate, expectedHarvestDate, actualHarvestDate, area, status, expectedProduction, actualProduction, notes, createdat, farms } = req.body;
+        let { farmer_id, farm_id, crop_name, crop_type, variety, sowingdate, expectedHarvestDate, actualHarvestDate, area, status, expectedProduction, actualProduction, notes, createdat, farms , users} = req.body;
 
-        let data = await crop.updateOne(req.params.id, {
+        let data = await crop.findByIdAndUpdate(req.params.id, {
             farm_id,
             crop_name,
             crop_type,
@@ -89,8 +90,8 @@ const UpdateCropbyfarmerid = async (req, res) => {
             expectedProduction,
             actualProduction,
             notes,
-            createdat,
-            farms
+            farms,
+            users
         })
         res.status(200).json({
             status: true,
