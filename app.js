@@ -22,10 +22,13 @@ connectDB();
 const FarmRoutes = require("./Routes/FarmRoutes");
 const UserRoutes = require("./Routes/UserRoutes");
 const CropRoutes = require("./Routes/CropRoutes");
+const SoiltestRoutes = require("./Routes/soiltestRoutes");
+
 
 app.use("/api/auth", FarmRoutes);
 app.use("/api/farms", UserRoutes);
-app.use("/api/crops",CropRoutes )
+app.use("/api/crops",CropRoutes);
+app.use("/api/soil-tests",SoiltestRoutes)
 
 const PORT = process.env.PORT || 3000
 
