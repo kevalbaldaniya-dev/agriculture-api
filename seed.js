@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const user = require("./models/user")
 const farm = require("./models/farm")
 const crop = require("./models/crop")
+const soiltest = require("./models/soiltest")
+
 
 async function start() {
     await connectDB();
@@ -53,10 +55,25 @@ async function start() {
         actualProduction: "20.5 Quintals",
         notes: "Organic fertilizer applied during initial growth stage.",
         createdat: new Date(),
-        farms:new mongoose.Types.ObjectId("6a7c4ba75fedb4d84c1f14a7"),
-        users:new mongoose.Types.ObjectId("6a7c4ba75fedb4d84c1f14a7"),
+        farms: new mongoose.Types.ObjectId("6a7c4ba75fedb4d84c1f14a7"),
+        users: new mongoose.Types.ObjectId("6a7c4ba75fedb4d84c1f14a7"),
     });
 
-     console.log("crop Added !!");
+    await soiltest.create({
+        farmer_id: "FARMER_IND_1042",
+        farm_id: 1,
+        nitrogen: 42.5,
+        phosphorus: 18.2,
+        potassium: 120.0,
+        ph: 6.8,
+        moisture: 24.5,
+        soil_type: "Loamy",
+        test_date: new Date(),
+        recommendation: "Add nitrogen-rich organic compost and maintain current watering schedule.",
+        farms: new mongoose.Types.ObjectId("6a7c4ba75fedb4d84c1f14a7"),
+        user: new mongoose.Types.ObjectId("6a7c4666dd535fab371d3308"),
+    });
+
+    console.log("soiltest data Added !!");
 }
 start();
