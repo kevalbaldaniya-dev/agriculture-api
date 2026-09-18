@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 //crop table for famer total crop show 
 const soiltestSchema = new mongoose.Schema({
   farmer_id: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
     maxLength: 99,
   },
   farm_id: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
     maxLength: 99,
   },
@@ -32,7 +32,7 @@ const soiltestSchema = new mongoose.Schema({
     required: true,
   },
   soil_type: {
-    type: Date,
+    type: String,
     required: true,
   },
   test_date: {
@@ -46,6 +46,10 @@ const soiltestSchema = new mongoose.Schema({
   farms: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "farm",
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user",
   }
 });
 
