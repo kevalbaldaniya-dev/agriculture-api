@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 //crop table for famer total crop show 
 const cropSchema = new mongoose.Schema({
   farmer_id: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
     maxLength: 99,
   },
   farm_id: {
-    type: Number,
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
   crop_name: {
