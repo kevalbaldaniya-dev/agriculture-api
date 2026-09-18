@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 // farm for farm details
 const farmSchema = new mongoose.Schema({
     farmer_id: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
         maxLength: 99
     },
