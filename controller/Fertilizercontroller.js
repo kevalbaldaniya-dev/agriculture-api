@@ -1,0 +1,1 @@
+const fertilizer = require("../models/")
