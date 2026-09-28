@@ -12,7 +12,7 @@ const {
   getFarmbyid,
   updateFarmbyid,
   deleteFarmbyid,
-} = require("../controller/Farmcontroller");
+} = require("../controller/Fertilizercontroller");
 
 router.post("/", Authmiddleware, upload.none(), addFarm);
 router.get("/", Authmiddleware, upload.none(), getFarm);
