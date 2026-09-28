@@ -66,7 +66,7 @@ const updatefertilizer = async (req, res) => {
     try {
 
         let { name, brand, type, description, price, stock, cropTypes, usage, createdat } = req.body;
-        let data = await fertilizer.findByIdAndUpdate(id, {
+        let data = await fertilizer.findByIdAndUpdate(req.params.id, {
             name, brand, type, description, price, stock, cropTypes, usage, createdat: new Date()
 
         });
