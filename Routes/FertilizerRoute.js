@@ -12,7 +12,7 @@ const {
     getfertilizerbyid,
     updatefertilizer,
     deletefertilizer
-} = require("../controller/Farmcontroller");
+} = require("../controller/Fertilizercontroller");
 
 router.post("/", upload.none(), addfertilizer);
 router.get("/", upload.none(), getfertilizer);
