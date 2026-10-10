@@ -16,9 +16,9 @@ let addfertilizer = async (req, res) => {
         })
 
     } catch (error) {
-        res.status(201).json({
+        res.status(500).json({
             status: true,
-            messag: "fertilizer added "
+            messag: "fertilizer add failed !! "
         })
     }
 }
