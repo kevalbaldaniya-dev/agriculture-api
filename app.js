@@ -24,13 +24,14 @@ const UserRoutes = require("./Routes/UserRoutes");
 const CropRoutes = require("./Routes/CropRoutes");
 const SoiltestRoutes = require("./Routes/soiltestRoutes");
 const FertilizerRoute = require("./Routes/FertilizerRoute");
-
+const ProductsRoutes = require("./Routes/ProductRoutes")
 
 app.use("/api/auth", FarmRoutes);
 app.use("/api/farms", UserRoutes);
 app.use("/api/crops",CropRoutes);
 app.use("/api/soil-tests",SoiltestRoutes)
 app.use("/api/fertilizers",FertilizerRoute)
+app.use("/api/products/",ProductsRoutes)
 
 
 const PORT = process.env.PORT || 3000
