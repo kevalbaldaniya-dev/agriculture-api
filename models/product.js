@@ -16,7 +16,7 @@ const ProductSchema = new mongoose.Schema({
         required: true,
         maxLength: 99,
     },
-    descrition: {
+    description: {
         type: String,
         required: true,
     },
@@ -53,14 +53,14 @@ const ProductSchema = new mongoose.Schema({
     },
     createdat: {
         type: Date,
-        required: true,
+
     },
     updatedat: {
         type: Date,
-        required: true,
+
     }
 })
 
-const product = mongoose.model("product",ProductSchema , "product");
+const product = mongoose.model("product", ProductSchema, "product");
 
-module.exports =  product 
+module.exports = product 

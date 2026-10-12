@@ -31,7 +31,7 @@ app.use("/api/farms", UserRoutes);
 app.use("/api/crops",CropRoutes);
 app.use("/api/soil-tests",SoiltestRoutes)
 app.use("/api/fertilizers",FertilizerRoute)
-app.use("/api/products/",ProductsRoutes)
+app.use("/api/products",ProductsRoutes)
 
 
 const PORT = process.env.PORT || 3000
