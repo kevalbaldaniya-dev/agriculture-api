@@ -90,10 +90,20 @@ const deleteProduct = async (req, res) => {
     }
 };
 
+let searchProduct = async (req, res) => {
+    try {
+        let { search } = req.query;
+        res.json(search)
+    } catch (error) {
+
+    }
+}
+
 module.exports = {
     Addproduct,
     GetAllProducts,
     getProductById,
     updateProductById,
-    deleteProduct
+    deleteProduct,
+    searchProduct
 };
